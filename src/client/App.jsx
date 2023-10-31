@@ -1,58 +1,32 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import NavBar from "./components/NavBar";
-import Tarjetas from "./components/Tarjetas";
-import Imagen from "./components/Imagen";
 import Footer from "./components/Footer";
+import Inicio from "./components/Inicio";
+import Videojuegos from "./components/Videojuegos";
+import Error_page from "./components/Error_page";
+import Agregar_Videojuego from "./components/Agregar_Videojuego";
 import "./App.css";
 
-const cards_content = [
+const router = createBrowserRouter([
   {
-    name: "Consolas PlayStation",
-    description: "Encuentra las mejores consolas PlayStation al mejor precio.",
-    photo_url:
-      "https://wallpaper-house.com/data/out/11/wallpaper2you_469251.jpg",
-    btn_color: "btn-primary",
+    path: "/",
+    element: <Inicio />,
+    errorElement: <Error_page />,
   },
   {
-    name: "Consolas Xbox",
-    description: "Las mejores consolas Xbox a un solo click",
-    photo_url:
-      "https://dotesports.com/wp-content/uploads/2022/10/26225504/xbox1-1.png",
-    btn_color: "btn-success",
+    path: "/videojuegos",
+    element: <Videojuegos />,
   },
   {
-    name: "Consolas Nintendo",
-    description:
-      "¿Eres fan de los juegos de Nintendo?, encuentra aquí tu Switch o tu Wii",
-    photo_url:
-      "https://mir-s3-cdn-cf.behance.net/project_modules/fs/3524ba70148279.5e9e1a288e349.png",
-    btn_color: "btn-danger",
+    path: "/videojuegos/agregar",
+    element: <Agregar_Videojuego />,
   },
-  {
-    name: "Accesorios",
-    description:
-      "¿Buscas accesorios para tu PC o Consola?, aquí tenemos los mejores accesorios al mejor precio",
-    photo_url:
-      "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-760w,f_auto,q_auto:best/newscms/2023_09/3596444/230228-gaming-accessories-vl-2x1.jpg",
-    btn_color: "btn-info",
-  },
-  {
-    name: "Videojuegos",
-    description: "Compra aquí tus videojuegos favoritos para cualquier consola",
-    photo_url:
-      "https://cdnb.artstation.com/p/assets/images/images/025/770/171/large/obeida-zakzak-heros-ps.jpg?1586873913",
-    btn_color: "btn-warning",
-  },
-];
-
-const gaming_wallpaper =
-  "https://static.vecteezy.com/system/resources/previews/022/700/313/non_2x/generative-ai-illustration-of-gaming-background-abstract-cyberpunk-style-of-gamer-wallpaper-neon-glow-light-of-scifi-fluorescent-sticks-digitally-generated-image-photo.jpeg";
-
+]);
 function App() {
   return (
     <div className="App">
       <NavBar />
-      <Imagen imagen={gaming_wallpaper} />
-      <Tarjetas cards_content={cards_content} />
+      <RouterProvider router={router} />
       <Footer />
     </div>
   );

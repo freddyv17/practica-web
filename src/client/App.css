@@ -3,7 +3,20 @@
   height: 500px;
 }
 
+.favorites-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #d5d3d3;
+  width: 50vw;
+  height: 50vh;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
 
-.Hola{
-  width: auto;
+.circle-image {
+  border-radius: 50%;
 }

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Tarjetas = ({ cards_content }) => {
   return (
     <div className="container">
@@ -13,9 +15,9 @@ const Tarjetas = ({ cards_content }) => {
               <div className="card-body">
                 <h5 className="card-title">{card.name}</h5>
                 <p className="card-text">{card.description}</p>
-                <a href="#" className={`btn ${card.btn_color}`}>
+                <Link to={card.url} className={`btn ${card.btn_color}`}>
                   Ver {card.name}
-                </a>
+                </Link>
               </div>
             </div>
           </div>
